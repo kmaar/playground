@@ -1,9 +1,28 @@
-import React from 'react'
+import React from "react"
+import { makeBlogPath } from "../utils"
+import dateformat from "dateformat"
 
-import theme from '../theme'
-
-const IndexPage = () => (
-  <div>nothing to see here...</div>
+export default ({ data }) => (
+  <div>
+    <h1>My Gatsby Blog</h1>
+    {data.cms.blogPosts.map((blog, i) => (
+      <a key={i} href={makeBlogPath(blog)}>
+        <h2>
+          {dateformat(blog.createdAt, "fullDate")} - {blog.title}
+        </h2>
+      </a>
+    ))}
+  </div>
 )
 
-export default IndexPage
+export const query = graphql`
+  query {
+    cms {
+      blogPosts(orderBy: createdAt_DESC) {
+        title
+        createdAt
+        slug
+      }
+    }
+  }
+`
