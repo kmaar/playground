@@ -1,12 +1,13 @@
-import React from "react"
-import dateformat from "dateformat"
+import React from 'react'
+import { graphql } from 'gatsby'
+import dateformat from 'dateformat'
 
 export default ({ data }) => {
   const blogPost = data.cms.blogPost
   return (
     <div>
       <h1>{blogPost.title}</h1>
-      <div>Posted at: {dateformat(blogPost.createdAt, "fullDate")}</div>
+      <div>Posted at: {dateformat(blogPost.createdAt, 'fullDate')}</div>
     </div>
   )
 }

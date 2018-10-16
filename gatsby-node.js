@@ -1,5 +1,5 @@
-const path = require(`path`)
-const { makeBlogPath } = require(`./src/utils`)
+const path = require('path')
+const { makeBlogPath } = require('./src/utils')
 
 exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
@@ -18,10 +18,10 @@ exports.createPages = async ({ actions, graphql }) => {
   data.cms.blogPosts.forEach(blog => {
     actions.createPage({
       path: makeBlogPath(blog),
-      component: path.resolve(`./src/components/BlogPost.js`),
+      component: path.resolve('./src/components/BlogPost.js'),
       context: {
-        blogId: blog.id,
-      },
+        blogId: blog.id
+      }
     })
   })
 }
