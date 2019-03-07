@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Kristian Maar Kristensen <kristian.maar@nordcloud.com>",
   "dependencies": {
+    "axios": "^0.18.0",
     "dateformat": "^3.0.3",
     "emotion": "^9.2.12",
     "emotion-server": "^9.2.12",
